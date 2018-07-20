@@ -1,26 +1,27 @@
 ---
-title: Template Chapter 1
-description: This is a template chapter.
+  title: "The basics of using R"
+  description: "This chapter will serve as a gentle introduction to using R."
 ---
 
 ## An exercise title written in sentence case
 
 ```yaml
-type: NormalExercise
+type: NormalExercise 
 lang: r
-xp: 100
+xp: 100 
 skills: 1
-key: 41d45aef32
+key: 41d45aef32   
 ```
 
-This is the assignment text. It should help provide students with the background information needed.
-The instructions that follow should be in bullet point form with clear guidance for what is expected.
+
+The first thing you should know is how to get help in R.
+
 
 `@instructions`
-- Instruction 1
-- Instruction 2
-- Instruction 3
-- Instruction 4
+- What is the result of calculating `abs(5)`?
+- What is the result of calculating `abs(-5)`?
+- Let's try to get help on the `abs()` function. Type `help(abs)` into the console.
+- Try what happens if you type `?abs` instead.
 
 `@hint`
 - Here is the hint for this setup problem. 
@@ -51,7 +52,7 @@ The instructions that follow should be in bullet point form with clear guidance 
 `@solution`
 
 ```{r}
-# Answer goes here
+help(pi) #This displays the help for # Answer goes here
 # Make sure to match the comments with your sample code
 # to help students see the differences from solution
 # to given.
@@ -61,5 +62,5 @@ The instructions that follow should be in bullet point form with clear guidance 
 
 ```{r}
 # Update this to something more informative.
-success_msg("Some praise! Then reinforce a learning objective from the exercise.")
+success_msg("Good job! Now you know how to get help for a specific R command!")
 ```
