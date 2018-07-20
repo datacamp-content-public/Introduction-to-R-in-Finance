@@ -3,7 +3,7 @@
   description: "This chapter will serve as a gentle introduction to using R."
 ---
 
-## An exercise title written in sentence case
+## Getting help in R
 
 ```yaml
 type: NormalExercise 
@@ -52,7 +52,8 @@ The first thing you should know is how to get help in R.
 `@solution`
 
 ```{r}
-help(pi) #This displays the help for # Answer goes here
+help(pi) #This displays the help for
+# Answer goes here
 # Make sure to match the comments with your sample code
 # to help students see the differences from solution
 # to given.
@@ -64,3 +65,51 @@ help(pi) #This displays the help for # Answer goes here
 # Update this to something more informative.
 success_msg("Good job! Now you know how to get help for a specific R command!")
 ```
+
+---
+
+## Insert exercise title here
+
+```yaml
+type: NormalExercise 
+xp: 100 
+key: f2b6d253e9   
+```
+
+
+
+
+
+`@instructions`
+
+
+`@hint`
+
+
+`@pre_exercise_code`
+
+```{r}
+
+```
+
+
+`@sample_code`
+
+```{r}
+
+```
+
+
+`@solution`
+
+```{r}
+
+```
+
+
+`@sct`
+
+```{r}
+
+```
+
