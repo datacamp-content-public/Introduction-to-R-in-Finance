@@ -260,7 +260,7 @@ success_msg("Awesome, this is quite the plot already!")
 
 ```yaml
 type: NormalExercise
-key: 9146d0b9e5
+key: a9cc1d0c87
 lang: r
 xp: 100
 skills: 1
@@ -315,7 +315,7 @@ success_msg("Well done. Now for the final leg of our first excursion through R's
 
 ```yaml
 type: NormalExercise
-key: 9146d0b9e5
+key: 6a67763317
 lang: r
 xp: 100
 skills: 1
