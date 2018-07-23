@@ -2,7 +2,7 @@
 title       : Simple plots
 description : This chapter will cover how to create simple plots.
 ---
-## Your first plot in R!
+## Your first plot in R
 
 ```yaml
 type: NormalExercise
@@ -107,7 +107,7 @@ success_msg("Good work! Your highschool teacher would be proud of you!")
 
 ```yaml
 type: NormalExercise
-key: '4429362060'
+key: 4429362060
 lang: r
 xp: 100
 skills: 1
@@ -217,13 +217,20 @@ We first need to calculate the results of the cosine function, `cos()`, evaluate
 
 Once we have that, we can plot the cosine function into our existing plot. If we simply used `plot()`, this would create a new plot that would contain *only* the cosine plot, not the sine plot as well. To add a new line to an existing plot, we need the function `lines()`. 
 
+Make sure you study the solution before submitting it, to understand what we have done.
+
+*Note that here on datacamp, you always need to execute the entire plot-related code at once, since otherwise the later function `lines()` does not have a plot to refer to. Thus, always highlight everything from `plot(...)` down to the line you are working on before pressing <CTRL>-<ENTER> to test your code.*
+
 `@hint`
 You calculated the sine function using `sin(x)` and assigned it to the variable `x` using the line of code `x <- sin(x)`. Now do the same for the cosine function `cos()` and the variable `z`.
+
+*Note that here on datacamp, you always need to execute the entire plot-related code at once, since otherwise the later function `lines()` does not have a plot to refer to. Thus, always highlight everything from `plot(...)` down to the line you are working on before pressing <CTRL>-<ENTER> to test your code.*
 
 `@pre_exercise_code`
 ```{r}
 x <- seq(from = 0, by = 0.1, to = 2 * pi)
 y <- sin(x)
+plot(x, y, type = "l", main = "Sine and cosine", xlab = "X", ylab = "sin(X) and cos(x)", col="red", lwd=4)
 ```
 
 `@sample_code`
@@ -231,10 +238,7 @@ y <- sin(x)
 #Calculate the cosine function for all values in x and save it in a vector called z
 z <-
 
-#Plot the sine function
-plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red", lwd=4)
-
-#Now add the cosine function
+#Now add the cosine function to the existing plot (we have already prepared everything for you in the line below)
 lines(x, z, type = "l", col = "blue", lwd = 4)
 
 ```
@@ -242,7 +246,7 @@ lines(x, z, type = "l", col = "blue", lwd = 4)
 `@solution`
 ```{r}
 z<-cos(x)
-plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red", lwd=4)
+plot(x, y, type = "l", main = "Sine and cosine", xlab = "X", ylab = "sin(X) and cos(x)", col="red", lwd=4)
 lines(x, z, type = "l", col = "blue", lwd = 4)
 ```
 
@@ -250,3 +254,120 @@ lines(x, z, type = "l", col = "blue", lwd = 4)
 ```{r}
 success_msg("Awesome, this is quite the plot already!")
 ```
+
+---
+## Adding a legend
+
+```yaml
+type: NormalExercise
+key: 9146d0b9e5
+lang: r
+xp: 100
+skills: 1
+```
+
+Once you have more than one plot in your graph, it is good practice to use a legend to tell viewers what these plots show. So let's add a legend to our graph!
+
+`@instructions`
+Drawing a legend in R requires the use of the `legend()`function. Now this function requires multiple pieces of information to produce what we want it to.
+
+1. Where we want the legend to go in the graph. We tell R by specifying the coordinates the upper left corner of the legend should be positioned. In this case: `legend(pi, 1 ...`
+2. The labels of the different elements shown in the legend. In this case, our two functions, i.e.: `legend(pi, 1, c("sin(X)", "cos(X)") ...`. Note that we use the `c()` function to combine the two texts into a vector.
+3. The colors of the lines to be drawn. In this case: `legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue") ...`
+4. The line width of the lines to be drawn. In this case: `legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue"), lwd=4)`
+
+Phew, sounds a bit complicated, but you can always use this legend as a reference for future work.
+
+*Note that here on datacamp, you always need to execute the entire plot-related code at once, since otherwise the later functions (`lines()`, `legend()`) do not have a plot to refer to. Thus, always highlight everything from `plot(...)` down to the line you are working on before pressing <CTRL>-<ENTER> to test your code.*
+
+`@pre_exercise_code`
+```{r}
+x <- seq(from = 0, by = 0.1, to = 2 * pi)
+y <- sin(x)
+z <- cos(x)
+```
+
+`@sample_code`
+```{r}
+#Re-execute the below two lines to draw the plot
+plot(x, y, type = "l", main = "Sine and cosine", xlab = "X", ylab = "sin(X) and cos(x)", col="red", lwd=4)
+lines(x, z, type = "l", col = "blue", lwd = 4)
+
+#Study and run the below line of code to add a legend to the plot
+legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue"), lwd=4)
+
+```
+
+`@solution`
+```{r}
+plot(x, y, type = "l", main = "Sine and cosine", xlab = "X", ylab = "sin(X) and cos(x)", col="red", lwd=4)
+lines(x, z, type = "l", col = "blue", lwd = 4)
+legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue"), lwd=4)
+```
+
+`@sct`
+```{r}
+success_msg("Well done. Now for the final leg of our first excursion through R's plotting capabilities ...")
+```
+
+---
+## Adding a reference line
+
+```yaml
+type: NormalExercise
+key: 9146d0b9e5
+lang: r
+xp: 100
+skills: 1
+```
+
+As a final flourish, let's add a reference line at y = 0 to the plot.
+
+`@instructions`
+Using the `abline()` function lets you quickly draw horizontal or vertical reference lines. You can specify either version by using the `h = Y` or the `v = X` options, where `X` and `Y` stand for the x- and y- coordinate where the line should be positioned.
+
+To make the line a little less prominent, you can specify the line type by using `lty=2` and color it gray.
+
+*Note that here on datacamp, you always need to execute the entire plot-related code at once, since otherwise the later functions (`lines()`, `legend()`, `abline()`) do not have a plot to refer to. Thus, always highlight everything from `plot(...)` down to the line you are working on before pressing <CTRL>-<ENTER> to test your code.*
+
+`@hint`
+  * You can specify the position of the line by using the argument `h=0` in the `abline()` call.
+  * The line type needs to be specified using the argument `lty=2`.
+  * The color of the line can again be specified using the color name, as in `col="gray"`.
+
+*Note that here on datacamp, you always need to execute the entire plot-related code at once, since otherwise the later functions (`lines()`, `legend()`, `abline()`) do not have a plot to refer to. Thus, always highlight everything from `plot(...)` down to the line you are working on before pressing <CTRL>-<ENTER> to test your code.*
+
+`@pre_exercise_code`
+```{r}
+x <- seq(from = 0, by = 0.1, to = 2 * pi)
+y <- sin(x)
+z <- cos(x)
+
+#legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue"), lwd=4)
+```
+
+`@sample_code`
+```{r}
+#Re-execute the below three lines to draw the plot
+plot(x, y, type = "l", main = "Sine and cosine", xlab = "X", ylab = "sin(X) and cos(x)", col="red", lwd=4)
+lines(x, z, type = "l", col = "blue", lwd = 4)
+legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue"), lwd=4)
+
+#Now draw a horizontal line at Y = 0 with color gray and line type 2
+abline( )
+
+```
+
+`@solution`
+```{r}
+plot(x, y, type = "l", main = "Sine and cosine", xlab = "X", ylab = "sin(X) and cos(x)", col="red", lwd=4)
+lines(x, z, type = "l", col = "blue", lwd = 4)
+legend(pi, 1, c("sin(X)", "cos(X)"), col=c("red", "blue"), lwd=4)
+abline(h = 0, lty = 2, col="gray")
+```
+
+`@sct`
+```{r}
+success_msg("Excellent! You have mastered the essentials of simple plots!")
+```
+
