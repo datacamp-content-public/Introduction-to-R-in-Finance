@@ -204,21 +204,21 @@ success_msg("Excellent, this looks beautiful!")
 
 ```yaml
 type: NormalExercise
-key: c11a2c1e90
+key: 9146d0b9e5
 lang: r
 xp: 100
 skills: 1
 ```
 
-In the exercise after this one, we will add another plot to our graph. If we do so and again use a black, thin line, it will be hard to distinguish the two plots. So before we add another plot, let's make the sine wave a bit more distinctive by making it thicker and assigning it a color.
+Now that we have a nice plot of the sine function, let's add a cosine function for contrast. Making it blue will set it off nicely from the sine function.
 
 `@instructions`
-R offers a number of different ways to specify colors. One of them is simply to use one of several pre-defined color names. By assigning a color to our line (in this case "red"), we can cause it to turn red. The relevant parameter in the `plot` function is `col`.
+We first need to calculate the results of the cosine function, `cos()`, evaluated at every element of `x`. Remember that for the sine function, we used `y<-sin(x)`. Can you now do it for the cosine function?
 
-Furthermore, we can specify the parameter `lwd` to assign a line width to our sine function plot to make it somewhat bolder and more distinctive. The default width is 1. How about setting it to 4 instead?
+Once we have that, we can plot the cosine function into our existing plot. If we simply used `plot()`, this would create a new plot that would contain *only* the cosine plot, not the sine plot as well. To add a new line to an existing plot, we need the function `lines()`. 
 
 `@hint`
-Using `col="blue"` makes the line turn blue, while `lwd=2` sets the line's width to 2. Can you now make the line red and width 4?
+You calculated the sine function using `sin(x)` and assigned it to the variable `x` using the line of code `x <- sin(x)`. Now do the same for the cosine function `cos()` and the variable `z`.
 
 `@pre_exercise_code`
 ```{r}
@@ -228,21 +228,25 @@ y <- sin(x)
 
 `@sample_code`
 ```{r}
-#Modify the plot function call to plot the line in red and test it by selecting the below line and pressing <CTRL>-<ENTER>
-plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)")
+#Calculate the cosine function for all values in x and save it in a vector called z
+z <-
 
-#Modify the plot function call from above to also make the line width equal 4
+#Plot the sine function
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red", lwd=4)
 
+#Now add the cosine function
+lines(x, z, type = "l", col = "blue", lwd = 4)
 
 ```
 
 `@solution`
 ```{r}
-plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red")
+z<-cos(x)
 plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red", lwd=4)
+lines(x, z, type = "l", col = "blue", lwd = 4)
 ```
 
 `@sct`
 ```{r}
-success_msg("Excellent, this looks beautiful!")
+success_msg("Awesome, this is quite the plot already!")
 ```
