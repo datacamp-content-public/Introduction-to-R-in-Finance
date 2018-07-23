@@ -1,4 +1,4 @@
-title: Introduction to using R in finance
-description: This course takes you from no prior R experience all the way to being able to run analyze stocks, form portfolios and plot financial data.
+title: Introduction to using R by Stefan Palan
+description: This course currently only contains a chapter on simple plots, but will be expanded as time goes by.
 programming_language: r
 from: 'r-base-prod:v1.0.0'
