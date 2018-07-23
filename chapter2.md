@@ -101,3 +101,54 @@ plot(x, y)
 ```{r}
 success_msg("Good work! Your highschool teacher would be proud of you!")
 ```
+
+---
+## Formatting your plot
+
+```yaml
+type: NormalExercise
+key: '4429362060'
+lang: r
+xp: 100
+skills: 1
+```
+
+While it is nice to see that sine function plot, nobody plots continuous functions using separate dots. Let's use a continuous line instead, why don't we? And while we're at it, we should add a title and particularly axis labels to your plot - remember how your highschool teacher used to nag you about those?
+
+`@instructions`
+To change the appeareance of a plot, we can add *options* to the plot function. These are additional parameters, telling R how to format the plot output.
+
+Let's start by telling R to format your data as a line instead of as individual dots. You do this by specifying the `type` parameter as `type="l"`. Note that this is a lower case "L" in the quotes, not the number "one". I have already prepared this for you in the script window. Put your cursor into the first line of code and hit <CTRL>-<ENTER> to run this piece of code.
+
+Once you have done this, add a figure title and axis labels to your plot using the options `main`, `xlab` and `ylab`.
+
+`@hint`
+First, calculate and save in `y` the sine of `x` by assigning the outcome of `sin(x)` to `y`.
+
+Then, plot the outcome using `plot(x,y)`.
+
+`@pre_exercise_code`
+```{r}
+x <- seq(from = 0, by = 0.1, to = 2 * pi)
+y <- sin(x)
+```
+
+`@sample_code`
+```{r}
+plot(x, y, type = "l") #Plots y over x as a line graph
+
+# Now add a main title "Sine wave", an x-axis label "X" and a y-axis label "sin(X)" to your plot. Complete the following line of code (don't forget to close the brackets!):
+plot(x, y, type = "l", 
+
+```
+
+`@solution`
+```{r}
+plot(x, y, type = "l")
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)")
+```
+
+`@sct`
+```{r}
+success_msg("Good work! Your highschool teacher would be proud of you!")
+```
