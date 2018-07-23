@@ -2,7 +2,9 @@
 title       : Simple plots
 description : This chapter will cover how to create simple plots.
 ---
-## <<<New Exercise>>>
+## Your first plot in R!
+
+# Test
 
 ```yaml
 type: NormalExercise
