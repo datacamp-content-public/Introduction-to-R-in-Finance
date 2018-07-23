@@ -51,7 +51,7 @@ Now - despite this success, you are not happy with how the figure looks? Well, l
 ```
 
 ---
-## Plotting something more useful
+## Plotting a sine wave
 
 ```yaml
 type: NormalExercise
@@ -103,7 +103,7 @@ success_msg("Good work! Your highschool teacher would be proud of you!")
 ```
 
 ---
-## Formatting your plot
+## Changing plot format and adding labels
 
 ```yaml
 type: NormalExercise
@@ -116,16 +116,14 @@ skills: 1
 While it is nice to see that sine function plot, nobody plots continuous functions using separate dots. Let's use a continuous line instead, why don't we? And while we're at it, we should add a title and particularly axis labels to your plot - remember how your highschool teacher used to nag you about those?
 
 `@instructions`
-To change the appeareance of a plot, we can add *options* to the plot function. These are additional parameters, telling R how to format the plot output.
+To change the appeareance of a plot, we can add *options* to the plot function call. These are additional parameters, telling R how to format the plot output.
 
 Let's start by telling R to format your data as a line instead of as individual dots. You do this by specifying the `type` parameter as `type="l"`. Note that this is a lower case "L" in the quotes, not the number "one". I have already prepared this for you in the script window. Put your cursor into the first line of code and hit <CTRL>-<ENTER> to run this piece of code.
 
 Once you have done this, add a figure title and axis labels to your plot using the options `main`, `xlab` and `ylab`.
 
 `@hint`
-First, calculate and save in `y` the sine of `x` by assigning the outcome of `sin(x)` to `y`.
-
-Then, plot the outcome using `plot(x,y)`.
+You can add the title and axis label options by using the argument name and assigning it a value. For the plot title, this would look as follows: `main="Sine wave"`.
 
 `@pre_exercise_code`
 ```{r}
@@ -150,5 +148,101 @@ plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)")
 
 `@sct`
 ```{r}
-success_msg("Good work! Your highschool teacher would be proud of you!")
+success_msg("Very nice - this looks like a proper graph of a sine wave!")
+```
+
+---
+## Colored and more pronounced lines
+
+```yaml
+type: NormalExercise
+key: c740f8f7a3
+lang: r
+xp: 100
+skills: 1
+```
+
+In the exercise after this one, we will add another plot to our graph. If we do so and again use a black, thin line, it will be hard to distinguish the two plots. So before we add another plot, let's make the sine wave a bit more distinctive by making it thicker and assigning it a color.
+
+`@instructions`
+R offers a number of different ways to specify colors. One of them is simply to use one of several pre-defined color names. By assigning a color to our line (in this case "red"), we can cause it to turn red. The relevant parameter in the `plot` function is `col`.
+
+Furthermore, we can specify the parameter `lwd` to assign a line width to our sine function plot to make it somewhat bolder and more distinctive. The default width is 1. How about setting it to 4 instead?
+
+`@hint`
+Using `col="blue"` makes the line turn blue, while `lwd=2` sets the line's width to 2. Can you now make the line red and width 4?
+
+`@pre_exercise_code`
+```{r}
+x <- seq(from = 0, by = 0.1, to = 2 * pi)
+y <- sin(x)
+```
+
+`@sample_code`
+```{r}
+#Modify the plot function call to plot the line in red and test it by selecting the below line and pressing <CTRL>-<ENTER>
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)")
+
+#Modify the plot function call from above to also make the line width equal 4
+
+
+```
+
+`@solution`
+```{r}
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red")
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red", lwd=4)
+```
+
+`@sct`
+```{r}
+success_msg("Excellent, this looks beautiful!")
+```
+
+---
+## Adding a cosine plot
+
+```yaml
+type: NormalExercise
+key: c11a2c1e90
+lang: r
+xp: 100
+skills: 1
+```
+
+In the exercise after this one, we will add another plot to our graph. If we do so and again use a black, thin line, it will be hard to distinguish the two plots. So before we add another plot, let's make the sine wave a bit more distinctive by making it thicker and assigning it a color.
+
+`@instructions`
+R offers a number of different ways to specify colors. One of them is simply to use one of several pre-defined color names. By assigning a color to our line (in this case "red"), we can cause it to turn red. The relevant parameter in the `plot` function is `col`.
+
+Furthermore, we can specify the parameter `lwd` to assign a line width to our sine function plot to make it somewhat bolder and more distinctive. The default width is 1. How about setting it to 4 instead?
+
+`@hint`
+Using `col="blue"` makes the line turn blue, while `lwd=2` sets the line's width to 2. Can you now make the line red and width 4?
+
+`@pre_exercise_code`
+```{r}
+x <- seq(from = 0, by = 0.1, to = 2 * pi)
+y <- sin(x)
+```
+
+`@sample_code`
+```{r}
+#Modify the plot function call to plot the line in red and test it by selecting the below line and pressing <CTRL>-<ENTER>
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)")
+
+#Modify the plot function call from above to also make the line width equal 4
+
+
+```
+
+`@solution`
+```{r}
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red")
+plot(x, y, type = "l", main = "Sine wave", xlab = "X", ylab = "sin(X)", col="red", lwd=4)
+```
+
+`@sct`
+```{r}
+success_msg("Excellent, this looks beautiful!")
 ```
